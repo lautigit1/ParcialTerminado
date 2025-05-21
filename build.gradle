@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JDBC para MySQL
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Logging simple (java.util.logging ya viene por defecto)
+}
+
+application {
+    mainClass = 'com.example.Main'  // Asegurate que la clase Main esté en ese paquete
+}
