@@ -1,0 +1,4 @@
+2025-05-21 19:02:15 INFO  com.example.Main - Aplicación iniciada
+2025-05-21 19:02:51 INFO  com.example.dao.ProductoDAOImpl - Intentando crear producto: Logitech g305
+2025-05-21 19:02:51 INFO  com.example.Main - Producto creado: Logitech g305
+2025-05-21 19:03:04 INFO  com.example.Main - Producto encontrado: Logitech g305

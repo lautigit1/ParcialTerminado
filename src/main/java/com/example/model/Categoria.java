@@ -1,5 +1,8 @@
 package com.example.model;
 
+/**
+ * Clase que representa una categoría de productos.
+ */
 public class Categoria {
     private int id;
     private String nombre;
@@ -33,9 +36,6 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return String.format("Categoria{id=%d, nombre='%s'}", id, nombre);
     }
 }

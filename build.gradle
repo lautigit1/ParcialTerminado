@@ -14,12 +14,31 @@ repositories {
 }
 
 dependencies {
-    // JDBC para MySQL
+
     implementation 'mysql:mysql-connector-java:8.0.33'
 
-    // Logging simple (java.util.logging ya viene por defecto)
+    // Log4j 2
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
+}
+
+// Evita conflictos con otros sistemas de logging
+configurations.all {
+    exclude group: 'commons-logging', module: 'commons-logging'
+    exclude group: 'log4j', module: 'log4j'
+    exclude group: 'org.slf4j', module: 'slf4j-simple'
+    exclude group: 'org.slf4j', module: 'slf4j-jdk14'
 }
 
 application {
-    mainClass = 'com.example.Main'  // Asegurate que la clase Main esté en ese paquete
+    mainClass = 'com.example.Main'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
 }

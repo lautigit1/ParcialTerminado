@@ -10,7 +10,7 @@ public class DatabaseCargador {
         String[] categorias = {"Electrónica", "Ropa", "Alimentos", "Libros"};
         String sql = "INSERT INTO categorias (nombre) VALUES (?)";
 
-        try (Connection conn = Databaseutil.getConnection()) {
+        try (Connection conn = com.example.util.Databaseutil.getConnection()) {
             for (String nombre : categorias) {
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     stmt.setString(1, nombre);

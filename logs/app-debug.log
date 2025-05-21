@@ -1,0 +1,16 @@
+2025-05-21 19:24:49.381 [main] INFO  com.example.Main - Aplicación iniciada
+2025-05-21 19:25:12.595 [main] INFO  com.example.Main - Categoría creada: Perifericos
+2025-05-21 19:26:01.593 [main] INFO  com.example.Main - Aplicación finalizada.
+2025-05-21 19:26:22.644 [main] INFO  com.example.Main - Aplicación iniciada
+2025-05-21 19:29:56.313 [main] INFO  com.example.Main - Aplicación iniciada
+2025-05-21 19:49:31.413 [main] INFO  com.example.Main - Aplicación iniciada
+2025-05-21 19:50:06.831 [main] INFO  com.example.dao.ProductoDAOImpl - Intentando crear producto: Dualshock ps4
+2025-05-21 19:50:06.873 [main] INFO  com.example.dao.ProductoDAOImpl - Producto creado con ID: 5
+2025-05-21 19:50:06.873 [main] INFO  com.example.Main - Producto creado: ID 5, Nombre Dualshock ps4
+2025-05-21 19:50:55.844 [main] INFO  com.example.dao.ProductoDAOImpl - Intentando actualizar producto con ID: 4
+2025-05-21 19:50:55.849 [main] INFO  com.example.dao.ProductoDAOImpl - Producto actualizado con ID: 4
+2025-05-21 19:50:55.849 [main] INFO  com.example.Main - Producto actualizado ID: 4
+2025-05-21 19:51:36.863 [main] INFO  com.example.dao.ProductoDAOImpl - Intentando actualizar producto con ID: 4
+2025-05-21 19:51:36.906 [main] INFO  com.example.dao.ProductoDAOImpl - Producto actualizado con ID: 4
+2025-05-21 19:51:36.906 [main] INFO  com.example.Main - Producto actualizado ID: 4
+2025-05-21 19:52:42.897 [main] INFO  com.example.Main - Aplicación finalizada.

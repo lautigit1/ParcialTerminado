@@ -1,20 +1,20 @@
 package com.example.dao;
 
 import com.example.model.Producto;
-import com.example.util.Databaseutil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class ProductoDAOImpl extends BaseDAO<Producto> {
+public class ProductoDAOImpl extends BaseDAO<Producto> implements ProductoDAO { // Implementa ProductoDAO
 
-    private static final Logger logger = Logger.getLogger(ProductoDAOImpl.class.getName());
+    private static final Logger logger = LogManager.getLogger(ProductoDAOImpl.class);
 
     @Override
     protected String obtenerSQLInsertar() {
+        // Incluye categoria_id en la inserción
         return "INSERT INTO productos (nombre, descripcion, precio, stock, categoria_id) VALUES (?, ?, ?, ?, ?)";
     }
 
@@ -24,11 +24,16 @@ public class ProductoDAOImpl extends BaseDAO<Producto> {
         stmt.setString(2, producto.getDescripcion());
         stmt.setDouble(3, producto.getPrecio());
         stmt.setInt(4, producto.getStock());
-        stmt.setInt(5, producto.getCategoriaId());
+        if (producto.getCategoriaId() > 0) { // Asumiendo que un ID de categoría válido es > 0
+            stmt.setInt(5, producto.getCategoriaId());
+        } else {
+            stmt.setNull(5, java.sql.Types.INTEGER); // Permitir nulo si no hay categoría
+        }
     }
 
     @Override
     protected String obtenerSQLActualizar() {
+        // Incluye categoria_id en la actualización
         return "UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, stock = ?, categoria_id = ? WHERE id = ?";
     }
 
@@ -38,8 +43,12 @@ public class ProductoDAOImpl extends BaseDAO<Producto> {
         stmt.setString(2, producto.getDescripcion());
         stmt.setDouble(3, producto.getPrecio());
         stmt.setInt(4, producto.getStock());
-        stmt.setInt(5, producto.getCategoriaId());
-        stmt.setInt(6, producto.getId());
+        if (producto.getCategoriaId() > 0) {
+            stmt.setInt(5, producto.getCategoriaId());
+        } else {
+            stmt.setNull(5, java.sql.Types.INTEGER);
+        }
+        stmt.setInt(6, producto.getId()); // El ID del producto va al final
     }
 
     @Override
@@ -49,45 +58,53 @@ public class ProductoDAOImpl extends BaseDAO<Producto> {
 
     @Override
     protected Producto mapearDesdeResultSet(ResultSet rs) throws SQLException {
+        // Mapea categoria_id desde el ResultSet
         return new Producto(
                 rs.getInt("id"),
                 rs.getString("nombre"),
                 rs.getString("descripcion"),
                 rs.getDouble("precio"),
                 rs.getInt("stock"),
-                rs.getInt("categoria_id"),
-                rs.getDate("fecha_creacion")
+                rs.getInt("categoria_id") // Obtener el categoria_id
         );
     }
 
-    // Consulta avanzada: buscar por nombre
-    public List<Producto> buscarPorNombre(String nombre) {
-        List<Producto> resultados = new ArrayList<>();
-        String sql = "SELECT * FROM productos WHERE nombre LIKE ?";
-        try (Connection conn = Databaseutil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, "%" + nombre + "%");
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                resultados.add(mapearDesdeResultSet(rs));
-            }
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error al buscar productos por nombre: " + nombre, e);
+    // Los overrides para logging son opcionales si BaseDAO ya loggea,
+    // pero si quieres logs específicos de ProductoDAOImpl, están bien.
+    @Override
+    public int crear(Producto producto) {
+        logger.info("Intentando crear producto: {}", producto.getNombre());
+        int idCreado = super.crear(producto);
+        if (idCreado > 0) {
+            logger.info("Producto creado con ID: {}", idCreado);
+        } else {
+            logger.error("Fallo al crear producto: {}", producto.getNombre());
         }
-        return resultados;
+        return idCreado;
     }
 
-    // Consulta avanzada: contar productos por categoría
-    public int contarPorCategoria(int categoriaId) {
-        String sql = "SELECT COUNT(*) FROM productos WHERE categoria_id = ?";
-        try (Connection conn = Databaseutil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, categoriaId);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) return rs.getInt(1);
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error al contar productos por categoría", e);
+    @Override
+    public boolean actualizar(Producto producto) {
+        logger.info("Intentando actualizar producto con ID: {}", producto.getId());
+        boolean actualizado = super.actualizar(producto);
+        if (actualizado) {
+            logger.info("Producto actualizado con ID: {}", producto.getId());
+        } else {
+            logger.error("Fallo al actualizar producto con ID: {}", producto.getId());
         }
-        return 0;
+        return actualizado;
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        // Podrías buscar el producto primero para loggear su nombre si lo deseas
+        logger.warn("Intentando eliminar producto con ID: {}", id);
+        boolean eliminado = super.eliminar(id);
+        if (eliminado) {
+            logger.info("Producto eliminado con ID: {}", id);
+        } else {
+            logger.error("Fallo al eliminar producto con ID: {}", id);
+        }
+        return eliminado;
     }
 }

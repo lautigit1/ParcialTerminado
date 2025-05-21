@@ -8,11 +8,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Clase base abstracta que implementa operaciones CRUD genéricas para una entidad T.
- *
- * @param <T> tipo de entidad.
- */
+
 public abstract class BaseDAO<T> implements RepositorioDAO<T> {
 
     private static final Logger logger = Logger.getLogger(BaseDAO.class.getName());
@@ -26,9 +22,7 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
     protected abstract String obtenerNombreTabla();
     protected abstract T mapearDesdeResultSet(ResultSet rs) throws SQLException;
 
-    /**
-     * Inserta una nueva entidad en la base de datos.
-     */
+
     @Override
     public int crear(T entidad) {
         try (Connection conn = Databaseutil.getConnection();
@@ -45,13 +39,11 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
         return -1;
     }
 
-    /**
-     * Busca una entidad por ID.
-     */
+
     @Override
     public T buscarPorId(int id) {
         String sql = "SELECT * FROM " + obtenerNombreTabla() + " WHERE id = ?";
-        try (Connection conn = Databaseutil.getConnection();
+        try (Connection conn = com.example.util.Databaseutil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
@@ -62,14 +54,12 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
         return null;
     }
 
-    /**
-     * Lista todas las entidades de la tabla.
-     */
+
     @Override
     public List<T> listarTodos() {
         List<T> lista = new ArrayList<>();
         String sql = "SELECT * FROM " + obtenerNombreTabla();
-        try (Connection conn = Databaseutil.getConnection();
+        try (Connection conn = com.example.util.Databaseutil.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) lista.add(mapearDesdeResultSet(rs));
@@ -79,12 +69,10 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
         return lista;
     }
 
-    /**
-     * Actualiza una entidad existente.
-     */
+
     @Override
     public boolean actualizar(T entidad) {
-        try (Connection conn = Databaseutil.getConnection();
+        try (Connection conn = com.example.util.Databaseutil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(obtenerSQLActualizar())) {
             configurarParametrosActualizar(stmt, entidad);
             return stmt.executeUpdate() > 0;
@@ -94,13 +82,11 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
         return false;
     }
 
-    /**
-     * Elimina una entidad por ID.
-     */
+
     @Override
     public boolean eliminar(int id) {
         String sql = "DELETE FROM " + obtenerNombreTabla() + " WHERE id = ?";
-        try (Connection conn = Databaseutil.getConnection();
+        try (Connection conn = com.example.util.Databaseutil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             return stmt.executeUpdate() > 0;

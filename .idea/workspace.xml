@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f22b7234-c217-4bc5-9993-449e3a2bcec1" name="Changes" comment="" />
+    <list default="true" id="f22b7234-c217-4bc5-9993-449e3a2bcec1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/BaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/BaseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/ProductoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/ProductoDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/ConfiguracionLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/util/ConfiguracionLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/DatabaseCargador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/util/DatabaseCargador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/Databaseutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/util/Databaseutil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +38,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lautigit1&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lautigit1/ParcialJavaTerminado.git&quot;,
+    &quot;accountId&quot;: &quot;0daadc7f-484f-4c24-a62d-b744c44d0e44&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -67,7 +91,11 @@
       <option name="presentableId" value="Default" />
       <updated>1747853916818</updated>
       <workItem from="1747853917765" duration="1617000" />
-      <workItem from="1747855847231" duration="2639000" />
+      <workItem from="1747855847231" duration="2814000" />
+      <workItem from="1747858839226" duration="2568000" />
+      <workItem from="1747863892996" duration="2680000" />
+      <workItem from="1747866584290" duration="593000" />
+      <workItem from="1747867287310" duration="1765000" />
     </task>
     <servers />
   </component>
