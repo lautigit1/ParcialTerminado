@@ -128,16 +128,16 @@ public class Main {
                 if (stock < 0) {
                     System.out.println("El stock no puede ser negativo.");
                 }
-            } catch (IllegalArgumentException e) { // Captura la excepción de validarInt
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
                 stock = -1;
             }
         }
-        int categoriaId = 0; // 0 o un valor que indique "sin categoría" o se pida validación
+        int categoriaId = 0;
         boolean categoriaValida = false;
         while(!categoriaValida){
             System.out.println("Categorías disponibles:");
-            listarCategoriasSilencioso(categoriaDAO); // Mostrar categorías para ayudar al usuario
+            listarCategoriasSilencioso(categoriaDAO);
             System.out.print("ID de la categoría del producto (o 0 si no tiene): ");
             String catIdStr = scanner.nextLine();
             try {
@@ -192,7 +192,6 @@ public class Main {
         if (encontrado != null) {
             System.out.println("Producto encontrado:");
             System.out.println(encontrado);
-            // Opcional: Mostrar también el nombre de la categoría si se recupera el objeto Categoria
         } else {
             System.out.println("No existe el producto con ID: " + id);
             logger.warn("Intento fallido de buscar producto ID: {}", id);
