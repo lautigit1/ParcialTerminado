@@ -6,20 +6,9 @@ public class Producto {
     private String descripcion;
     private double precio;
     private int stock;
-    private int categoriaId; // Campo para la relación con Categoria
+    private int categoriaId;
 
-    public Producto() {}
-
-    // Constructor para crear un nuevo producto antes de guardarlo (sin ID)
-    public Producto(String nombre, String descripcion, double precio, int stock, int categoriaId) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.stock = stock;
-        this.categoriaId = categoriaId;
-    }
-
-    // Constructor para instanciar un producto desde la base de datos (con ID)
+    // Constructor completo con ID (usado al mapear desde la base de datos)
     public Producto(int id, String nombre, String descripcion, double precio, int stock, int categoriaId) {
         this.id = id;
         this.nombre = nombre;
@@ -29,6 +18,16 @@ public class Producto {
         this.categoriaId = categoriaId;
     }
 
+    // Constructor sin ID (usado al crear un nuevo producto)
+    public Producto(String nombre, String descripcion, double precio, int stock, int categoriaId) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.stock = stock;
+        this.categoriaId = categoriaId;
+    }
+
+    // Getters y Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -49,7 +48,13 @@ public class Producto {
 
     @Override
     public String toString() {
-        return String.format("Producto{id=%d, nombre='%s', desc='%s', precio=%.2f, stock=%d, categoriaId=%d}",
-                id, nombre, descripcion, precio, stock, categoriaId);
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", stock=" + stock +
+                ", categoriaId=" + categoriaId +
+                '}';
     }
 }

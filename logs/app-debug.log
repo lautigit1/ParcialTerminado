@@ -14,3 +14,17 @@
 2025-05-21 19:51:36.906 [main] INFO  com.example.dao.ProductoDAOImpl - Producto actualizado con ID: 4
 2025-05-21 19:51:36.906 [main] INFO  com.example.Main - Producto actualizado ID: 4
 2025-05-21 19:52:42.897 [main] INFO  com.example.Main - Aplicación finalizada.
+2025-05-21 21:43:53.994 [main] INFO  com.example.dao.ProductoDAOImpl - Intentando crear producto: 0
+2025-05-21 21:43:54.019 [main] INFO  com.example.dao.ProductoDAOImpl - Producto creado con ID: 6
+2025-05-21 21:54:42.008 [main] INFO  com.example.Main - Aplicación iniciada
+2025-05-21 21:54:56.421 [main] INFO  com.example.Main - Categoría creada ID: 4
+2025-05-21 22:14:49.638 [main] INFO  com.example.Main - Aplicación iniciada
+2025-05-21 22:15:23.949 [main] INFO  com.example.dao.ProductoDAOImpl - Intentando crear producto: Samsung galaxy A71
+2025-05-21 22:15:23.960 [main] INFO  com.example.dao.ProductoDAOImpl - Producto creado con ID: 7
+2025-05-21 22:15:23.960 [main] INFO  com.example.Main - Producto creado con ID: 7
+2025-05-21 22:15:47.948 [main] WARN  com.example.Main - Producto eliminado: 0
+2025-05-21 22:15:47.948 [main] WARN  com.example.dao.ProductoDAOImpl - Intentando eliminar producto con ID: 6
+2025-05-21 22:15:47.954 [main] INFO  com.example.dao.ProductoDAOImpl - Producto eliminado con ID: 6
+2025-05-21 22:16:12.962 [main] INFO  com.example.Main - Aplicación finalizada por el usuario.
+2025-05-21 22:27:55.950 [main] INFO  com.example.Main - Aplicación iniciada.
+2025-05-21 22:28:01.338 [main] INFO  com.example.Main - Aplicación finalizada por el usuario.
