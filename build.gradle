@@ -14,16 +14,14 @@ repositories {
 }
 
 dependencies {
-
     implementation 'mysql:mysql-connector-java:8.0.33'
-
-    // Log4j 2
     implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
     implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
     implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
+    implementation 'com.zaxxer:HikariCP:5.1.0'
 }
 
-// Evita conflictos con otros sistemas de logging
+
 configurations.all {
     exclude group: 'commons-logging', module: 'commons-logging'
     exclude group: 'log4j', module: 'log4j'

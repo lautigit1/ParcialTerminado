@@ -5,9 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f22b7234-c217-4bc5-9993-449e3a2bcec1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/easycode/codebase-v2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/.idea/easycode.ignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/logs/app-debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/logs/app.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/dao/BaseDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/dao/CategoriaDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/dao/CategoriaDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/dao/ProductoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/dao/ProductoDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/dao/RepositorioDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/model/Categoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/model/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/util/ConfiguracionLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/util/DatabaseCargador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/java/com/example/util/Databaseutil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/main/resources/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/dao/BaseDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/dao/CategoriaDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/dao/CategoriaDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/dao/ProductoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/dao/ProductoDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/dao/RepositorioDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/model/Categoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/model/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/util/ConfiguracionLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/util/DatabaseCargador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParcialJavaTerminado/src/src/main/java/com/example/util/Databaseutil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/app-debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app-debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/BaseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/BaseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/CategoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/CategoriaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/CategoriaDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/CategoriaDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/ProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/ProductoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dao/ProductoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dao/ProductoDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/util/Databaseutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/util/Databaseutil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/dao/BaseDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/dao/CategoriaDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/dao/CategoriaDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/dao/ProductoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/dao/ProductoDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/dao/RepositorioDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/model/Categoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/model/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/util/ConfiguracionLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/util/DatabaseCargador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/com/example/util/Databaseutil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +109,10 @@
     &quot;accountId&quot;: &quot;0daadc7f-484f-4c24-a62d-b744c44d0e44&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/dao/BaseDAO.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -55,15 +126,26 @@
   "keyToString": {
     "Gradle.Parcial_Java [:com.example.Main.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Lauti/Desktop/TP1_ClasesGenericas_Java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -87,7 +169,13 @@
       <workItem from="1747858839226" duration="2568000" />
       <workItem from="1747863892996" duration="2680000" />
       <workItem from="1747866584290" duration="593000" />
-      <workItem from="1747867287310" duration="4523000" />
+      <workItem from="1747867287310" duration="7198000" />
+      <workItem from="1747938304788" duration="1533000" />
+      <workItem from="1747941787126" duration="104000" />
+      <workItem from="1748355702396" duration="11000" />
+      <workItem from="1748355726745" duration="293000" />
+      <workItem from="1748356280056" duration="248000" />
+      <workItem from="1748356536941" duration="5079000" />
     </task>
     <servers />
   </component>

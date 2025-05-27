@@ -1,38 +1,62 @@
 package com.example.util;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Databaseutil {
-    private static final String DB_URL_SERVER = "jdbc:mysql://localhost:3306/";
+
+    private static final Logger logger = Logger.getLogger(Databaseutil.class.getName());
+
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/tienda";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
-    private static final String DB_NAME = "tienda";
+
+    private static final HikariDataSource dataSource;
+
+    static {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(DB_URL);
+        config.setUsername(DB_USER);
+        config.setPassword(DB_PASSWORD);
+        config.setMaximumPoolSize(10); // opcional
+        config.setMinimumIdle(2);      // opcional
+        config.setIdleTimeout(30000);  // opcional
+        config.setPoolName("TiendaPool");
+
+        dataSource = new HikariDataSource(config);
+    }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL_SERVER + DB_NAME, DB_USER, DB_PASSWORD);
+        return dataSource.getConnection();
     }
 
     public static void initDatabase() {
-        try (Connection serverConn = DriverManager.getConnection(DB_URL_SERVER, DB_USER, DB_PASSWORD);
-             Statement stmt = serverConn.createStatement()) {
-            stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + DB_NAME);
+        // Crear base de datos si no existe
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", DB_USER, DB_PASSWORD);
+             Statement stmt = conn.createStatement()) {
+
+            stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS tienda");
+
         } catch (SQLException e) {
-            System.err.println("[ERROR] No se pudo crear la base de datos '" + DB_NAME + "'");
-            e.printStackTrace();
-            return;
+            logger.log(Level.SEVERE, "Error al crear base de datos.", e);
         }
 
-        try (Connection connTienda = getConnection();
-             Statement stmtTienda = connTienda.createStatement()) {
+        // Crear tablas si no existen
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement()) {
 
-            String sqlCategorias = """
+            stmt.executeUpdate("""
                 CREATE TABLE IF NOT EXISTS categorias (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     nombre VARCHAR(100) NOT NULL UNIQUE
                 )
-                """;
+            """);
 
-            String sqlProductos = """
+            stmt.executeUpdate("""
                 CREATE TABLE IF NOT EXISTS productos (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     nombre VARCHAR(100) NOT NULL,
@@ -41,32 +65,14 @@ public class Databaseutil {
                     stock INT NOT NULL,
                     categoria_id INT,
                     FOREIGN KEY (categoria_id) REFERENCES categorias(id)
-                        ON DELETE SET NULL
-                        ON UPDATE CASCADE
+                        ON DELETE SET NULL ON UPDATE CASCADE
                 )
-                """;
+            """);
 
-            stmtTienda.executeUpdate(sqlCategorias);
-            stmtTienda.executeUpdate(sqlProductos);
-
-            System.out.println("Tablas inicializadas correctamente en la base de datos '" + DB_NAME + "'.");
+            System.out.println("Base de datos inicializada.");
 
         } catch (SQLException e) {
-            System.err.println("[ERROR] No se pudieron crear las tablas en '" + DB_NAME + "'");
-            e.printStackTrace();
-        }
-    }
-
-    public static void closeResources(AutoCloseable... resources) {
-        for (AutoCloseable r : resources) {
-            if (r != null) {
-                try {
-                    r.close();
-                } catch (Exception e) {
-                    System.err.println("Error al cerrar recurso:");
-                    e.printStackTrace();
-                }
-            }
+            logger.log(Level.SEVERE, "Error al crear tablas.", e);
         }
     }
 }

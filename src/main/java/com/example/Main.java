@@ -34,7 +34,7 @@ public class Main {
                     case "1" -> menuProductos(scanner, productoDAO, categoriaDAO);
                     case "2" -> menuCategorias(scanner, categoriaDAO);
                     case "0" -> {
-                        logger.info("Aplicación finalizada por el usuario.");
+                        logger.info("¡Cerraste la aplicacion con exito!.");
                         return;
                     }
                     default -> System.out.println("Opción inválida.");
@@ -49,8 +49,8 @@ public class Main {
     private static void menuProductos(Scanner s, ProductoDAOImpl pDAO, CategoriaDAOImpl cDAO) {
         while (true) {
             System.out.println("\nGESTIÓN DE PRODUCTOS");
-            System.out.println("1. Crear producto");
-            System.out.println("2. Listar productos");
+            System.out.println("1. Crear");
+            System.out.println("2. Listar");
             System.out.println("3. Buscar por ID");
             System.out.println("4. Actualizar");
             System.out.println("5. Eliminar");
@@ -67,12 +67,36 @@ public class Main {
                             System.out.println("Nombre no puede estar vacío.");
                             break;
                         }
+
                         System.out.print("Descripción: ");
                         String desc = s.nextLine().trim();
-                        System.out.print("Precio: ");
-                        double pre = Double.parseDouble(s.nextLine());
-                        System.out.print("Stock: ");
-                        int sto = validarInt(s.nextLine());
+
+                        double pre;
+                        while (true) {
+                            try {
+                                System.out.print("Precio: ");
+                                pre = Double.parseDouble(s.nextLine());
+                                if (pre <= 0) {
+                                    System.out.println("Debe ser mayor a cero.");
+                                } else break;
+                            } catch (NumberFormatException e) {
+                                System.out.println("Número inválido.");
+                            }
+                        }
+
+                        int sto;
+                        while (true) {
+                            try {
+                                System.out.print("Stock: ");
+                                sto = validarInt(s.nextLine());
+                                if (sto < 0) {
+                                    System.out.println("No puede ser negativo.");
+                                } else break;
+                            } catch (NumberFormatException e) {
+                                System.out.println("Stock inválido.");
+                            }
+                        }
+
                         listarCategoriasSilencioso(cDAO);
                         System.out.print("ID Categoría (0 si ninguna): ");
                         int catId = validarInt(s.nextLine());
@@ -80,9 +104,10 @@ public class Main {
                             System.out.println("Categoría no existe.");
                             break;
                         }
+
                         Producto nuevo = new Producto(nom, desc, pre, sto, catId);
                         int idGen = pDAO.crear(nuevo);
-                        System.out.println(idGen > 0 ? "Producto creado. ID: " + idGen : "Error al crear producto.");
+                        System.out.println(idGen > 0 ? "Creado. ID: " + idGen : "Error al crear.");
                     }
                     case "2" -> {
                         List<Producto> productos = pDAO.listarTodos();
@@ -106,38 +131,53 @@ public class Main {
                         System.out.print("Nuevo nombre (" + p.getNombre() + "): ");
                         String nuevoNom = s.nextLine().trim();
                         if (!nuevoNom.isEmpty()) p.setNombre(nuevoNom);
+
                         System.out.print("Nueva descripción (" + p.getDescripcion() + "): ");
                         String nuevaDesc = s.nextLine().trim();
                         if (!nuevaDesc.isEmpty()) p.setDescripcion(nuevaDesc);
+
                         System.out.print("Nuevo precio (" + p.getPrecio() + "): ");
                         String nuevoPre = s.nextLine();
-                        if (!nuevoPre.isEmpty()) p.setPrecio(Double.parseDouble(nuevoPre));
+                        if (!nuevoPre.isEmpty()) {
+                            try {
+                                double precio = Double.parseDouble(nuevoPre);
+                                if (precio > 0) p.setPrecio(precio);
+                            } catch (NumberFormatException ignored) {}
+                        }
+
                         System.out.print("Nuevo stock (" + p.getStock() + "): ");
                         String nuevoStock = s.nextLine();
-                        if (!nuevoStock.isEmpty()) p.setStock(validarInt(nuevoStock));
+                        if (!nuevoStock.isEmpty()) {
+                            try {
+                                int stock = validarInt(nuevoStock);
+                                if (stock >= 0) p.setStock(stock);
+                            } catch (NumberFormatException ignored) {}
+                        }
+
                         listarCategoriasSilencioso(cDAO);
                         System.out.print("Nueva categoría (" + p.getCategoriaId() + "): ");
                         String nuevaCat = s.nextLine();
                         if (!nuevaCat.isEmpty()) {
                             int catId = validarInt(nuevaCat);
-                            if (catId != 0 && cDAO.buscarPorId(catId) == null) {
-                                System.out.println("Categoría no existe. No se cambia.");
-                            } else p.setCategoriaId(catId);
+                            if (catId == 0 || cDAO.buscarPorId(catId) != null) {
+                                p.setCategoriaId(catId);
+                            }
                         }
-                        System.out.println(pDAO.actualizar(p) ? "Actualizado correctamente." : "Error al actualizar.");
+
+                        System.out.println(pDAO.actualizar(p) ? "Actualizado." : "Error al actualizar.");
                     }
                     case "5" -> {
                         System.out.print("ID a eliminar: ");
                         int id = validarInt(s.nextLine());
                         Producto p = pDAO.buscarPorId(id);
                         if (p == null) {
-                            System.out.println("Producto no existe.");
+                            System.out.println("No existe.");
                             break;
                         }
                         System.out.print("¿Eliminar '" + p.getNombre() + "'? (s/N): ");
                         if (s.nextLine().equalsIgnoreCase("s")) {
-                            System.out.println(pDAO.eliminar(id) ? "Eliminado correctamente." : "Error al eliminar.");
-                        } else System.out.println("Cancelado.");
+                            System.out.println(pDAO.eliminar(id) ? "Eliminado." : "Error al eliminar.");
+                        }
                     }
                     default -> System.out.println("Opción inválida.");
                 }
@@ -166,19 +206,19 @@ public class Main {
                         System.out.print("Nombre: ");
                         String nom = s.nextLine().trim();
                         if (nom.isEmpty()) {
-                            System.out.println("Nombre no puede estar vacío.");
+                            System.out.println("No puede estar vacío.");
                             break;
                         }
                         int id = cDAO.crear(new Categoria(nom));
-                        System.out.println(id > 0 ? "Categoría creada. ID: " + id : "Error al crear.");
+                        System.out.println(id > 0 ? "Creada. ID: " + id : "Error al crear.");
                     }
                     case "2" -> {
-                        List<Categoria> cats = cDAO.listarTodos();
+                        List<Categoria> cats = cDAO.listarTodas();
                         if (cats.isEmpty()) System.out.println("No hay categorías.");
                         else cats.forEach(System.out::println);
                     }
                     case "3" -> {
-                        System.out.print("ID categoría: ");
+                        System.out.print("ID: ");
                         int id = validarInt(s.nextLine());
                         Categoria c = cDAO.buscarPorId(id);
                         System.out.println(c != null ? c : "No encontrada.");
@@ -188,16 +228,14 @@ public class Main {
                         int id = validarInt(s.nextLine());
                         Categoria c = cDAO.buscarPorId(id);
                         if (c == null) {
-                            System.out.println("Categoría no existe.");
+                            System.out.println("No existe.");
                             break;
                         }
                         System.out.print("Nuevo nombre (" + c.getNombre() + "): ");
                         String nuevoNom = s.nextLine().trim();
                         if (!nuevoNom.isEmpty()) {
                             c.setNombre(nuevoNom);
-                            System.out.println(cDAO.actualizar(c) ? "Categoría actualizada." : "Error al actualizar.");
-                        } else {
-                            System.out.println("No se modificó.");
+                            System.out.println(cDAO.actualizar(c) ? "Actualizada." : "Error al actualizar.");
                         }
                     }
                     case "5" -> {
@@ -205,13 +243,13 @@ public class Main {
                         int id = validarInt(s.nextLine());
                         Categoria c = cDAO.buscarPorId(id);
                         if (c == null) {
-                            System.out.println("Categoría no existe.");
+                            System.out.println("No existe.");
                             break;
                         }
                         System.out.print("¿Eliminar '" + c.getNombre() + "'? (s/N): ");
                         if (s.nextLine().equalsIgnoreCase("s")) {
-                            System.out.println(cDAO.eliminar(id) ? "Eliminada correctamente." : "Error al eliminar.");
-                        } else System.out.println("Cancelado.");
+                            System.out.println(cDAO.eliminar(id) ? "Eliminada." : "Error al eliminar.");
+                        }
                     }
                     default -> System.out.println("Opción inválida.");
                 }
@@ -223,12 +261,9 @@ public class Main {
     }
 
     private static void listarCategoriasSilencioso(CategoriaDAOImpl dao) {
-        List<Categoria> cats = dao.listarTodos();
-        if (cats.isEmpty()) {
-            System.out.println("  (No hay categorías disponibles)");
-        } else {
-            cats.forEach(c -> System.out.println("  ID: " + c.getId() + " - " + c.getNombre()));
-        }
+        List<Categoria> cats = dao.listarTodas();
+        if (cats.isEmpty()) System.out.println("  (No hay categorías)");
+        else cats.forEach(c -> System.out.println("  ID: " + c.getId() + " - " + c.getNombre()));
     }
 
     private static int validarInt(String input) {

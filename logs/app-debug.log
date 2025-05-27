@@ -28,3 +28,13 @@
 2025-05-21 22:16:12.962 [main] INFO  com.example.Main - Aplicación finalizada por el usuario.
 2025-05-21 22:27:55.950 [main] INFO  com.example.Main - Aplicación iniciada.
 2025-05-21 22:28:01.338 [main] INFO  com.example.Main - Aplicación finalizada por el usuario.
+2025-05-22 15:53:35.924 [main] INFO  com.example.Main - Aplicación iniciada.
+2025-05-22 15:54:01.260 [main] INFO  com.example.Main - Aplicación finalizada por el usuario.
+2025-05-27 12:50:17.257 [main] INFO  com.example.Main - Aplicación iniciada.
+2025-05-27 12:52:05.285 [main] INFO  com.example.Main - Aplicación iniciada.
+2025-05-27 12:53:00.688 [main] INFO  com.example.Main - Aplicación finalizada por el usuario.
+2025-05-27 12:53:52.079 [main] ERROR com.example.Main - Error general en menú principal
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.example.Main.menuProductos(Main.java:59) ~[main/:?]
+	at com.example.Main.main(Main.java:34) [main/:?]

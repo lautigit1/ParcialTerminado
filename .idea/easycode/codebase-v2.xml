@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/main/java/com/example/dao/BaseDAO.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/dao/CategoriaDAO.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/dao/CategoriaDAOImpl.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/dao/ProductoDAO.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/dao/ProductoDAOImpl.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/dao/RepositorioDAO.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/model/Categoria.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/model/Producto.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/util/Databaseutil.java;C:/Users/Lauti/IdeaProjects/Parcial_Java/src/main/java/com/example/Main.java" />
+  </component>
+</project>

@@ -23,9 +23,8 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
 
     @Override
     public int crear(T entidad) {
-        String sql = obtenerSQLInsertar();
         try (Connection conn = Databaseutil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement stmt = conn.prepareStatement(obtenerSQLInsertar(), Statement.RETURN_GENERATED_KEYS)) {
             configurarParametrosInsertar(stmt, entidad);
             int filas = stmt.executeUpdate();
             if (filas > 0) {
@@ -49,7 +48,7 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
                 if (rs.next()) return mapearDesdeResultSet(rs);
             }
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error al buscar entidad con ID: " + id, e);
+            logger.log(Level.SEVERE, "Error al buscar entidad ID: " + id, e);
         }
         return null;
     }
@@ -61,9 +60,7 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
         try (Connection conn = Databaseutil.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                lista.add(mapearDesdeResultSet(rs));
-            }
+            while (rs.next()) lista.add(mapearDesdeResultSet(rs));
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Error al listar entidades", e);
         }
@@ -90,7 +87,7 @@ public abstract class BaseDAO<T> implements RepositorioDAO<T> {
             stmt.setInt(1, id);
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Error al eliminar entidad con ID: " + id, e);
+            logger.log(Level.SEVERE, "Error al eliminar entidad ID: " + id, e);
         }
         return false;
     }
