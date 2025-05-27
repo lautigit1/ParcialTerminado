@@ -53,8 +53,9 @@ Este proyecto es una aplicación de consola desarrollada en Java como parte del 
 1. **Clonar el repositorio**
    git clone https://github.com/lautigit1/ParcialTerminado.git
    cd ParcialTerminado
-Compilar y ejecutar con Gradle
+2. **Compilar y ejecutar con Gradle**
 ./gradlew run
+
 El programa creará automáticamente:
 
 La base de datos tienda si no existe
@@ -64,6 +65,7 @@ Las tablas categorias y productos
 Usar el menú interactivo desde consola
 
 📝 Detalles de configuración
+
 Base de datos
 El archivo Databaseutil.java utiliza HikariCP para manejar un pool de conexiones:
 HikariConfig config = new HikariConfig();
@@ -80,14 +82,7 @@ Rotar archivos de depuración (logs/app-debug-*.log)
 El código es fácilmente adaptable a otro motor (como H2 o PostgreSQL), cambiando la cadena de conexión en Databaseutil.
 Las clases DAO están diseñadas para ser reutilizables y extensibles.
 El pool de conexiones optimiza el rendimiento incluso en múltiples operaciones seguidas.
-📁 Archivos importantes
-Archivo	Descripción
-Main.java	Clase principal con menú e interacción
-BaseDAO.java	DAO genérico con lógica común CRUD
-CategoriaDAOImpl.java	DAO concreto para Categoria
-ProductoDAOImpl.java	DAO concreto para Producto
-Databaseutil.java	Manejo de base de datos y conexión (con pool)
-log4j2.xml	Configuración de logging
+
 👨‍💻 Autor
 Lautaro Salinas
 Materia: Programacion 2 Laboratorio 
