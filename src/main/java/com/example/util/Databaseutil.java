@@ -73,10 +73,10 @@ public class Databaseutil {
                 )
             """);
 
-            System.out.println("✅ Tablas creadas correctamente en la base '" + DB_NAME + "'.");
+            System.out.println("Tablas creadas correctamente en la base '" + DB_NAME + "'.");
 
         } catch (SQLException e) {
-            System.err.println("❌ Error al crear las tablas.");
+            System.err.println("Error al crear las tablas.");
             e.printStackTrace();
         }
     }
