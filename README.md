@@ -26,21 +26,6 @@ Este proyecto es una aplicación de consola desarrollada en Java como parte del 
 - Pool de conexiones configurado con **HikariCP** (alto rendimiento)
 
 ---
-
-## 🗂️ Estructura del proyecto
-
-├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ │ ├── com.example.model -> Clases de dominio: Producto, Categoria
-│ │ │ ├── com.example.dao -> Interfaces y clases DAO
-│ │ │ ├── com.example.util -> Utilidades como Databaseutil (con pool HikariCP)
-│ │ │ └── com.example.Main -> Clase principal con menú de consola
-│ │ └── resources/
-│ │ └── log4j2.xml -> Configuración de logging
-├── logs/ -> Archivos generados por Log4j2
-├── build.gradle -> Configuración de Gradle
----
 ## 🧪 Funcionalidades implementadas
 
 | Funcionalidad                | Implementado |
