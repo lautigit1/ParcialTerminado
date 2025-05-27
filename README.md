@@ -1,34 +1,111 @@
-# Tienda - Proyecto Java con JDBC, Log4j2 y HikariCP
+# 🛒 Tienda - Aplicación Java con JDBC, DAO Genérico, Log4j2 y Pool de Conexiones (HikariCP)
 
-Este es un proyecto de consola en Java que desarrollé para el práctico de Laboratorio II. Utiliza JDBC para conectarse a una base de datos MySQL y permite gestionar productos y categorías con operaciones CRUD completas. También implementé Log4j2 para el manejo de logs, HikariCP para el pool de conexiones y seguí una arquitectura en capas con DAO genérico.
+Este proyecto es una aplicación de consola desarrollada en Java como parte del práctico de **Laboratorio II** (Tecnicatura Universitaria en Programación, 2024). Permite la gestión completa de productos y categorías almacenados en una base de datos **MySQL**, con funcionalidades CRUD, arquitectura en capas y uso de buenas prácticas profesionales.
 
-## Tecnologías utilizadas
+---
 
-- Java 17
-- MySQL 8
-- JDBC
-- Gradle
-- Log4j 2
-- HikariCP 
+## ⚙️ Tecnologías utilizadas
 
-## Estructura del proyecto
+- 💻 **Java 17**
+- 🛢️ **MySQL 8** (localhost)
+- 🔌 **JDBC** (con consultas parametrizadas)
+- 📦 **Gradle** como sistema de construcción
+- 📊 **Log4j 2** para logging estructurado
+- 🚀 **HikariCP** para manejo eficiente de conexiones (pool)
 
-- `model/`: clases de dominio (`Producto`, `Categoria`)
-- `dao/`: interfaces e implementaciones DAO (`BaseDAO`, `CategoriaDAO`, `ProductoDAO`)
-- `util/`: clase de conexión a base de datos (`Databaseutil`)
-- `Main.java`: menú principal e interacción con el usuario
+---
 
-## Funcionalidades
+## 🧠 Características principales
 
-- Crear, listar, buscar por ID, actualizar y eliminar productos y categorías
-- Validaciones de entrada desde consola (por ejemplo, evitar campos vacíos o precios negativos)
-- Relación entre productos y categorías (clave foránea)
-- Logs en consola y archivos (`app.log`, `app-debug.log`) con niveles `info`, `warn` y `error`
-- Uso de HikariCP para manejo eficiente de conexiones
+- CRUD completo para las entidades `Producto` y `Categoria`
+- DAO genérico `BaseDAO<T>` con implementación por entidad
+- Arquitectura en capas: separación clara entre modelo, DAO, lógica y presentación
+- Validaciones de entrada por consola (campos obligatorios, tipo de datos)
+- Logging de operaciones (`info`, `warn`, `error`) con consola y archivos rotativos
+- Inicialización automática de base de datos y tablas desde el código
+- Pool de conexiones configurado con **HikariCP** (alto rendimiento)
 
-## Cómo ejecutar el proyecto
+---
 
-1. Clonar el repositorio:
-   ```bash
+## 🗂️ Estructura del proyecto
+
+├── src/
+│ ├── main/
+│ │ ├── java/
+│ │ │ ├── com.example.model -> Clases de dominio: Producto, Categoria
+│ │ │ ├── com.example.dao -> Interfaces y clases DAO
+│ │ │ ├── com.example.util -> Utilidades como Databaseutil (con pool HikariCP)
+│ │ │ └── com.example.Main -> Clase principal con menú de consola
+│ │ └── resources/
+│ │ └── log4j2.xml -> Configuración de logging
+├── logs/ -> Archivos generados por Log4j2
+├── build.gradle -> Configuración de Gradle
+---
+## 🧪 Funcionalidades implementadas
+
+| Funcionalidad                | Implementado |
+|-----------------------------|--------------|
+| Crear categorías y productos | ✅           |
+| Listar, buscar por ID        | ✅           |
+| Actualizar y eliminar        | ✅           |
+| Validar campos desde consola | ✅           |
+| Relación entre entidades     | ✅ (`producto.categoria_id`) |
+| Manejo de errores            | ✅ con logs y mensajes |
+| Logging detallado            | ✅ Log4j2 + RollingFile |
+| Pool de conexiones           | ✅ HikariCP integrado |
+| Inicialización automática    | ✅ BD y tablas |
+
+---
+## 🧰 Requisitos
+
+- JDK 17 o superior
+- MySQL instalado localmente
+- Usuario: `root` – Contraseña: _(vacía por defecto)_
+- Puerto por defecto: `3306`
+---
+## 🚀 Cómo ejecutar el proyecto
+
+1. **Clonar el repositorio**
    git clone https://github.com/lautigit1/ParcialTerminado.git
    cd ParcialTerminado
+Compilar y ejecutar con Gradle
+./gradlew run
+El programa creará automáticamente:
+
+La base de datos tienda si no existe
+
+Las tablas categorias y productos
+
+Usar el menú interactivo desde consola
+
+📝 Detalles de configuración
+Base de datos
+El archivo Databaseutil.java utiliza HikariCP para manejar un pool de conexiones:
+HikariConfig config = new HikariConfig();
+config.setJdbcUrl("jdbc:mysql://localhost:3306/tienda");
+config.setUsername("root");
+config.setPassword("");
+Logging
+El archivo log4j2.xml está configurado para:
+Mostrar logs en consola
+Guardar logs en archivo (logs/app.log)
+Rotar archivos de depuración (logs/app-debug-*.log)
+
+📌 Notas adicionales
+El código es fácilmente adaptable a otro motor (como H2 o PostgreSQL), cambiando la cadena de conexión en Databaseutil.
+Las clases DAO están diseñadas para ser reutilizables y extensibles.
+El pool de conexiones optimiza el rendimiento incluso en múltiples operaciones seguidas.
+📁 Archivos importantes
+Archivo	Descripción
+Main.java	Clase principal con menú e interacción
+BaseDAO.java	DAO genérico con lógica común CRUD
+CategoriaDAOImpl.java	DAO concreto para Categoria
+ProductoDAOImpl.java	DAO concreto para Producto
+Databaseutil.java	Manejo de base de datos y conexión (con pool)
+log4j2.xml	Configuración de logging
+👨‍💻 Autor
+Lautaro Salinas
+Materia: Programacion 2 Laboratorio 
+Carrera: Tecnicatura Universitaria en Programación
+Año: 2025
+Repositorio: github.com/lautigit1/ParcialTerminado
