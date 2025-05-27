@@ -69,13 +69,20 @@ Usar el menú interactivo desde consola
 Base de datos
 El archivo Databaseutil.java utiliza HikariCP para manejar un pool de conexiones:
 HikariConfig config = new HikariConfig();
+
 config.setJdbcUrl("jdbc:mysql://localhost:3306/tienda");
+
 config.setUsername("root");
+
 config.setPassword("");
+
 Logging
 El archivo log4j2.xml está configurado para:
+
 Mostrar logs en consola
+
 Guardar logs en archivo (logs/app.log)
+
 Rotar archivos de depuración (logs/app-debug-*.log)
 
 📌 Notas adicionales
