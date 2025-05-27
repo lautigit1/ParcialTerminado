@@ -91,8 +91,13 @@ Las clases DAO están diseñadas para ser reutilizables y extensibles.
 El pool de conexiones optimiza el rendimiento incluso en múltiples operaciones seguidas.
 
 👨‍💻 Autor
+
 Lautaro Salinas
+
 Materia: Programacion 2 Laboratorio 
+
 Carrera: Tecnicatura Universitaria en Programación
+
 Año: 2025
+
 Repositorio: github.com/lautigit1/ParcialTerminado
