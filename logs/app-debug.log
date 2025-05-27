@@ -38,3 +38,5 @@ java.util.NoSuchElementException: No line found
 	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
 	at com.example.Main.menuProductos(Main.java:59) ~[main/:?]
 	at com.example.Main.main(Main.java:34) [main/:?]
+2025-05-27 19:35:29.655 [main] INFO  com.example.Main - Aplicación iniciada.
+2025-05-27 19:40:49.057 [main] INFO  com.example.Main - Aplicación iniciada.
