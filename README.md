@@ -1,4 +1,4 @@
-# 🛒 Tienda - Aplicación Java con JDBC, DAO Genérico, Log4j2 y Pool de Conexiones (HikariCP)
+# 🛒 Tienda - Aplicación Java con JDBC, DAO Genérico, Log4j2 y Pool de Conexiones 
 
 Este proyecto es una aplicación de consola desarrollada en Java como parte del práctico de **Laboratorio II** (Tecnicatura Universitaria en Programación, 2024). Permite la gestión completa de productos y categorías almacenados en una base de datos **MySQL**, con funcionalidades CRUD, arquitectura en capas y uso de buenas prácticas profesionales.
 
